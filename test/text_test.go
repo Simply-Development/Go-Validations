@@ -17,8 +17,9 @@
 package simplyvalidationstests
 
 import (
-	simplyvalidations "simply-go-validations/src"
 	"testing"
+
+	simplyvalidations "github.com/simply-development/go-validations"
 )
 
 // TestValidatesTextRequired ... Test if validation works for Required requirement
