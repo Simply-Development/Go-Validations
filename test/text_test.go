@@ -53,8 +53,8 @@ func TestValidatesTextRequired(t *testing.T) {
 	})
 }
 
-// TestValidatesMinLength ... Test if validation works for MinLength requirement
-func TestValidatesMinLength(t *testing.T) {
+// TestValidatesTextMinLength ... Test if validation works for MinLength requirement
+func TestValidatesTextMinLength(t *testing.T) {
 	t.Run("Text have more characters than minimum length", func(t *testing.T) {
 		got := simplyvalidations.ValidatesText("Test", simplyvalidations.TextValidationOptions{MinLength: 3})
 		if got != nil {
@@ -69,8 +69,8 @@ func TestValidatesMinLength(t *testing.T) {
 	})
 }
 
-// TestValidatesMaxLength ... Test if validation works for MaxLength requirement
-func TestValidatesMaxLength(t *testing.T) {
+// TestValidatesTextMaxLength ... Test if validation works for MaxLength requirement
+func TestValidatesTextMaxLength(t *testing.T) {
 	t.Run("Text have less characters than maximum length", func(t *testing.T) {
 		got := simplyvalidations.ValidatesText("Test", simplyvalidations.TextValidationOptions{MaxLength: 5})
 		if got != nil {
@@ -85,8 +85,8 @@ func TestValidatesMaxLength(t *testing.T) {
 	})
 }
 
-// TestValidatesFormat ... Test if validation works for Format requirement
-func TestValidatesFormat(t *testing.T) {
+// TestValidatesTextFormat ... Test if validation works for Format requirement
+func TestValidatesTextFormat(t *testing.T) {
 	t.Run("Text match with required format", func(t *testing.T) {
 		got := simplyvalidations.ValidatesText("Test", simplyvalidations.TextValidationOptions{Format: simplyvalidations.OnlyLettersRegex})
 		if got != nil {
@@ -96,7 +96,7 @@ func TestValidatesFormat(t *testing.T) {
 	t.Run("Text doesn't match with required format", func(t *testing.T) {
 		got := simplyvalidations.ValidatesText("Test1", simplyvalidations.TextValidationOptions{Format: simplyvalidations.OnlyLettersRegex})
 		if got == nil {
-			t.Errorf(`ValidatesText("Test", simplyvalidations.TextValidationOptions{Format: simplyvalidations.OnlyLettersRegex}) = %s, want error`, got)
+			t.Errorf(`ValidatesText("Test1", simplyvalidations.TextValidationOptions{Format: simplyvalidations.OnlyLettersRegex}) = %s, want error`, got)
 		}
 	})
 }
