@@ -22,18 +22,18 @@ import (
 	simplyvalidations "github.com/simply-development/go-validations"
 )
 
-// TestValidatesFormat ... Test if validation works for email entry
-func TestValidatesEmail(t *testing.T) {
-	t.Run("Email is valid", func(t *testing.T) {
-		got := simplyvalidations.ValidatesEmail("hello@simply-development.com")
+// TestValidatesPassword ... Test if validation works for password entry
+func TestValidatesPassword(t *testing.T) {
+	t.Run("Password is valid", func(t *testing.T) {
+		got := simplyvalidations.ValidatesPassword("contraseña")
 		if got != nil {
-			t.Errorf(`ValidatesEmail("hello@simply-development.com") = %s, want nil`, got)
+			t.Errorf(`ValidatesPassword("contraseña") = %s, want nil`, got)
 		}
 	})
-	t.Run("Email is invalid", func(t *testing.T) {
-		got := simplyvalidations.ValidatesEmail("hello@noexiste.com")
+	t.Run("Password is invalid", func(t *testing.T) {
+		got := simplyvalidations.ValidatesPassword("Contraseña-1")
 		if got == nil {
-			t.Errorf(`ValidatesEmail("hello@noexiste.com") = %s, want error`, got)
+			t.Errorf(`ValidatesPassword("Contraseña-1") = %s, want error`, got)
 		}
 	})
 }
